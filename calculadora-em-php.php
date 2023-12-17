@@ -62,8 +62,8 @@ function formatarPreco(input) {
                                 $consumo = floatval($_POST["consumo"]);
 
                                 $calculo = ($distancia / $consumo) * $combustivel;
-                                $resultado = number_format($calculo, 2, ',', '');                                
-                                
+                                $resultado = number_format($calculo, 2, ',', '');
+                                echo json_encode(['resultado' => $resultado]);
                                 print 
                                 "<div class='form-group'>
                                 <h3> O total em combustível será R$$resultado. </h3>
@@ -84,5 +84,7 @@ function formatarPreco(input) {
     
     
     ?>
+    <script src="jquery.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
