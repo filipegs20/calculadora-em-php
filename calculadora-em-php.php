@@ -30,7 +30,7 @@ function formatarPreco(input) {
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
-                        <form id="login-form" class="form" action="" method="post">
+                        <form id="login-form" class="form" action="processamento-de-calculo.php" method="post">
 
                             <input type="hidden" name="acao" value="cadastrar">
 
@@ -47,43 +47,24 @@ function formatarPreco(input) {
                                 <label for="consumo" class="format-login-registro">Consumo do veículo(km/l):</label><br> 
                                 <input type="text" name="consumo" id="consumo" class="form-control" oninput="formatarPreco(this)" maxlength="5" required>
                             </div>
-
                             
                             <div class="div-buttom-registro-login">
                             <button type="submit" class="btn btn-outline-success buttom_registro_login">Calcular</button>
                             </div>
                             
                         </form>
-                        <?php
-                            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-                                $distancia = $_POST["distancia"];
-                                $combustivel = floatval($_POST["combustivel"]);
-                                $consumo = floatval($_POST["consumo"]);
+                        <div id="div-result">
 
-                                $calculo = ($distancia / $consumo) * $combustivel;
-                                $resultado = number_format($calculo, 2, ',', '');
-                                echo json_encode(['resultado' => $resultado]);
-                                print 
-                                "<div class='form-group'>
-                                <h3> O total em combustível será R$$resultado. </h3>
-                                </div>";
-                            }
-                            ?>
-                        
+
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <?php
-
-
-    
-    
-    
-    ?>
     <script src="jquery.js"></script>
     <script src="scripts.js"></script>
 </body>
