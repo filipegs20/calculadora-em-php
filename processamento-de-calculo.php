@@ -10,10 +10,11 @@
 
         $calculo = ($distancia / $consumo) * $combustivel;
         $resultado = number_format($calculo, 2, ',', '');
-    
-        echo json_encode(['resultado' => $resultado]);
+
+        $resposta = array("resultado" => $resultado);
+        echo json_encode($resposta);
     }else {
-        echo json_encode(['error' => 'Parâmetros inválidos']);
+        echo json_encode('Parâmetros inválidos');
     }
     
 ?>
